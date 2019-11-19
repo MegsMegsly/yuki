@@ -7,7 +7,7 @@ const Yuki = new Client();
 
 Yuki.commands = new Collection();
 Yuki.aliases = new Collection();
-Yuki.RichEmbed = new RichEmbed();
+Yuki.RichEmbed = RichEmbed;
 
 (events = module.exports.events = (dir = `${__dirname}/events/`) => {
 	fs.readdir(dir, (error, files) => {
