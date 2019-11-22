@@ -5,11 +5,16 @@
   "main": "index.js",
   "author": "megga",
   "dependencies": {
+    "canvas": "^2.6.0",
+    "catbox.moe": "0.0.3",
     "discord.js": "^11.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "request": "^2.88.0",
+    "shitgram": "^1.4.2"
   },
   "scripts": {
     "start": "node index.js"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
