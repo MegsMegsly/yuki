@@ -1,3 +1,7 @@
+const Catbox = require('catbox.moe');
+
+const catbox = new Catbox(process.env.CATBOX_USERHASH);
+
 module.exports = {
 	name: 'upload',
 	aliases: ['up'],
@@ -5,35 +9,17 @@ module.exports = {
 	category: 'owner',
 	enabled: true,
 	execute(Yuki, message, args) {
-		request({
-			method: 'POST',
-			url: 'https://catbox.moe/user/api.php',
-			form: {
-				reqtype: 'urlupload',
-				userhash: process.env.CATBOX_USERHASH,
-				url: args[0]
-			}
-		})
-		.then((data) => {
-			const embed = new Yuki.RichEmbed()
-				.setDescription(`**[Download Link](${data.body})**`)
-				.setImage(data.body)
-			message.channel.send(embed);
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+		if(message.author.id !== process.env.OWNERID) return console.log(`Usou o comando upload: ${message.author.tag}`);
+		catbox.upload(args[0])
+			.then((url) => {
+				const embed = new Yuki.RichEmbed()
+					.setImage(url)
+					.setDescription(`[Catbox URL](${url})`)
+				message.channel.send(embed);
+			})
+			.catch((error) => {
+				console.log(error);
+			})
 
-		function request(data) {
-		    return new Promise(function(resolve, reject) {
-		        require('request')(data, function(error, response, body) {
-		            if (!error) {
-		                resolve(response);
-		            } else {
-		                reject(error);
-		            }
-		        });
-		    });
-		}
 	}
 };
