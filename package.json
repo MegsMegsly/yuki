@@ -5,12 +5,10 @@
   "main": "index.js",
   "author": "megga",
   "dependencies": {
-    "catbox.moe": "0.0.3",
+    "catbox.moe": "^0.0.7",
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
-    "fs": "0.0.1-security",
     "mal-scraper": "^2.6.5",
-    "request": "^2.88.0",
     "shitgram": "^1.4.2"
   },
   "scripts": {
