@@ -15,7 +15,7 @@ module.exports = {
 				message.channel.send(embed);
 			})
 			.catch((error) => {
-				console.log(error);
+				message.channel.send(error, { code: 'js' });
 			});
 	}
 };

@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "megga",
   "dependencies": {
-    "catbox.moe": "^0.0.7",
+    "catbox.moe": "0.0.7",
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "mal-scraper": "^2.6.5",

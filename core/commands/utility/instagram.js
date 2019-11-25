@@ -9,6 +9,7 @@ module.exports = {
 	category: 'utility',
 	enabled: true,
 	execute(Yuki, message, args) {
+		message.channel.startTyping();
 		shitgram.user(args[0])
 			.then((user) => {
 				const embed = new Yuki.RichEmbed()
@@ -22,10 +23,10 @@ module.exports = {
 					.addField('Posts:', `\`\`\`\n${user.posts}\n\`\`\``, true)
 					.addField('Followers:', `\`\`\`\n${user.followers}\n\`\`\``, true)
 					.addField('Following:', `\`\`\`\n${user.following}\n\`\`\``, true)
-				message.channel.send(embed);
+				message.channel.send(embed).then(message.channel.stopTyping();
 			})
 			.catch((error) => {
-				message.channel.send(error);
+				message.channel.send(error).then(message.channel.stopTyping();
 			});
 	}
 };
