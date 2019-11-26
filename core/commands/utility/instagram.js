@@ -23,7 +23,7 @@ module.exports = {
 					.addField('Posts:', `\`\`\`\n${user.posts}\n\`\`\``, true)
 					.addField('Followers:', `\`\`\`\n${user.followers}\n\`\`\``, true)
 					.addField('Following:', `\`\`\`\n${user.following}\n\`\`\``, true)
-				message.channel.send(embed).then(message.channel.stopTyping();
+				message.channel.send(embed).then(message.channel.stopTyping());
 			})
 			.catch((error) => {
 				message.channel.send(error).then(message.channel.stopTyping());
