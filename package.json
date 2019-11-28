@@ -8,6 +8,7 @@
     "catbox.moe": "0.0.7",
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
+    "fortnite": "^4.3.2",
     "mal-scraper": "^2.6.5",
     "shitgram": "^1.4.2"
   },
