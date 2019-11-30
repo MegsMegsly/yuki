@@ -15,12 +15,12 @@ module.exports = {
 					.setThumbnail(data.picture)
 					.setURL(data.url)
 					.setTitle(`${data.title}${data.japaneseTitle ? ` (${data.japaneseTitle})` : ''}`)
-					.addField('Score:', `\`\`\`\n${data.score}\n\`\`\``, true)
-					.addField('Ranked:', `\`\`\`\n${data.ranked}\n\`\`\``, true)
-					.addField('Synopsis:', `\`\`\`\n${data.synopsis.split('\n\n')[0]}\n\`\`\``, false)
-					.addField('Episodes:', `\`\`\`\n${data.episodes}\n\`\`\``, true)
-					.addField('Duration:', `\`\`\`\n${data.duration}\n\`\`\``, true)
-					.addField('Studios:', `\`\`\`\n${data.studios}\n\`\`\``, true)
+					.addField('Score:', Yuki.util.sendCode(`${data.score}`, { code: 'js' }), true)
+					.addField('Ranked:', Yuki.util.sendCode(`${data.ranked}`, { code: 'js' }), true)
+					.addField('Synopsis:', Yuki.util.sendCode(`${data.synopsis.split('\n\n')[0]}`, { code: 'js' }), false)
+					.addField('Episodes:', Yuki.util.sendCode(`${data.episodes}`, { code: 'js' }), true)
+					.addField('Duration:', Yuki.util.sendCode(`${data.duration}`, { code: 'js' }), true)
+					.addField('Studios:', Yuki.util.sendCode(`${data.studios}`, { code: 'js' }), true)
 				message.channel.send(embed).then(message.channel.stopTyping());
 			})
 			.catch((error) => {
@@ -28,3 +28,5 @@ module.exports = {
 			});
 	}
 };
+
+//Yuki.util.sendCode(`${data.synopsis.split('\n\n')[0]}`, { code: 'js' }) 
