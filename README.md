@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://files.catbox.moe/8cvpiq.png"><br>
+    <img src="https://files.catbox.moe/gxyqf0.png"><br>
     <b>Yuki-Chan</b><br>
     <b>Discord Bot with multiple features.</b>
     <br><br>
