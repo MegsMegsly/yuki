@@ -11,13 +11,13 @@ module.exports = {
 		const embed = new Yuki.RichEmbed()
 			.setColor(role.hexColor)
 			.setThumbnail(`https://dummyimage.com/512/${role.hexColor.slice(1)}/&text=%20`)
-			.addField(':mag: Name:', `\`\`\`\n${role.name}\n\`\`\``, true)
-			.addField(':id: ID:', `\`\`\`\n${role.id}\n\`\`\``, true)
-			.addField(':art: Color:', `\`\`\`\n${role.hexColor.toUpperCase()}\n\`\`\``, true)
-			.addField(':person_raising_hand: Mentionable:', `\`\`\`\n${role.mentionable ? 'Yes' : 'No'}\n\`\`\``, true)
-			.addField(':pushpin: Hoisted:', `\`\`\`\n${role.hoist ? 'Yes' : 'No'}\n\`\`\``, true)
-			.addField(':straight_ruler: Position:', `\`\`\`\n${role.position}/${message.guild.roles.size}\n\`\`\``, true)
-			.addField(':closed_lock_with_key: Permissions:', `\`\`\`\n${permissions.join('\n') || 'None'}\n\`\`\``)
+			.addField(':mag: Name:', Yuki.util.sendCode(`${role.name}`, { code: 'js' }), true)
+			.addField(':id: ID:', Yuki.util.sendCode(`${role.id}`, { code: 'js' }), true)
+			.addField(':art: Color:', Yuki.util.sendCode(`${role.hexColor.toUpperCase()}`, { code: 'js' }), true)
+			.addField(':person_raising_hand: Mentionable:', Yuki.util.sendCode(`${role.mentionable ? 'Yes' : 'No'}`, { code: 'js' }), true)
+			.addField(':pushpin: Hoisted:', Yuki.util.sendCode(`${role.hoist ? 'Yes' : 'No'}`, { code: 'js' }), true)
+			.addField(':straight_ruler: Position:', Yuki.util.sendCode(`${role.position}/${message.guild.roles.size}`, { code: 'js' }), true)
+			.addField(':closed_lock_with_key: Permissions:', Yuki.util.sendCode(`${permissions.join('\n') || 'None'}`, { code: 'js' }))
 			.setFooter(`現在、このポジションを使用している[${role.members.size}]人のメンバー。`);
 		message.channel.send(embed);
 	}

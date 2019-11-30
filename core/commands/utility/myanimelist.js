@@ -28,5 +28,3 @@ module.exports = {
 			});
 	}
 };
-
-//Yuki.util.sendCode(`${data.synopsis.split('\n\n')[0]}`, { code: 'js' }) 

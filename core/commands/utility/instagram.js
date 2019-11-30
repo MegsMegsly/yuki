@@ -14,15 +14,15 @@ module.exports = {
 			.then((user) => {
 				const embed = new Yuki.RichEmbed()
 					.setColor('#445F52')
-					.setFooter('Sponsored by shitgram')
 					.setThumbnail(user.avatarURL)
-					.addField('Username:', `\`\`\`\n${user.username}\n\`\`\``, true)
-					.addField('ID:', `\`\`\`\n${user.id}\n\`\`\``, true)
-					.addField('Full Name:', `\`\`\`\n${user.fullName}\n\`\`\``, true)
-					.addField('Biography:', `\`\`\`\n${user.biography}\n\`\`\``, false)
-					.addField('Posts:', `\`\`\`\n${user.posts}\n\`\`\``, true)
-					.addField('Followers:', `\`\`\`\n${user.followers}\n\`\`\``, true)
-					.addField('Following:', `\`\`\`\n${user.following}\n\`\`\``, true)
+					.addField('Username:', Yuki.util.sendCode(`${user.username}`, { code: 'js' }), true)
+					.addField('ID:', Yuki.util.sendCode(`${user.id}`, { code: 'js' }), true)
+					.addField('Full Name:', Yuki.util.sendCode(`${user.fullName}`, { code: 'js' }), true)
+					.addField('Biography:', Yuki.util.sendCode(`${user.biography}`, { code: 'js' }), false)
+					.addField('Posts:', Yuki.util.sendCode(`${user.posts}`, { code: 'js' }), true)
+					.addField('Followers:', Yuki.util.sendCode(`${user.followers}`, { code: 'js' }), true)
+					.addField('Following:', Yuki.util.sendCode(`${user.following}`, { code: 'js' }), true)
+					.setFooter('Sponsored by shitgram')
 				message.channel.send(embed).then(message.channel.stopTyping());
 			})
 			.catch((error) => {
