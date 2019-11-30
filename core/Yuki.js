@@ -1,14 +1,7 @@
 require('dotenv/config');
 
-const { Client, Collection, RichEmbed } =  require('discord.js');
+const Yuki = new (require('./structures/Discord.js'));
 const fs = require('fs');
-
-const Yuki = new Client();
-
-Yuki.commands = new Collection();
-Yuki.aliases = new Collection();
-Yuki.RichEmbed = RichEmbed;
-Yuki.util = require('./util/Util.js');
 
 (events = module.exports.events = (dir = `${__dirname}/events/`) => {
 	fs.readdir(dir, (error, files) => {
