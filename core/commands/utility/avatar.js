@@ -15,7 +15,10 @@ module.exports = {
 				message.channel.send(embed);
 			})
 			.catch((error) => {
-				message.channel.send(error, { code: 'js' });
+				const embed = new Yuki.RichEmbed()
+					.setColor(Yuki.util.hexColor.error)
+					.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
+				message.channel.send(embed).then(message.channel.stopTyping());
 			});
 	}
 };
