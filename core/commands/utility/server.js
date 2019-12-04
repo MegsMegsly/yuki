@@ -18,7 +18,3 @@ module.exports = {
 		message.channel.send(embed);
 	}
 };
-
-
-//:earth_americas: 
-//:slight_smile: 
