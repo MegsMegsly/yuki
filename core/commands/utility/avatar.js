@@ -5,6 +5,7 @@ module.exports = {
 	category: 'utility',
 	enabled: true,
 	execute(Yuki, message, args) {
+		message.channel.startTyping();
 		const target = message.mentions.users.first() || Yuki.users.get(args[0]) || message.author
 		Yuki.fetchUser(target)
 			.then((user) => {
