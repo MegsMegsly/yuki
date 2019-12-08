@@ -41,7 +41,7 @@ module.exports = {
 			.addField(':mag: Name:', Yuki.util.sendCode(guild.name, { code: 'fix' }), true)
 			.addField(':id: ID:', Yuki.util.sendCode(guild.id, { code: 'js' }), true)
 			.addField(`:hash: Channels [${guild.channels.size}]:`, Yuki.util.sendCode(`Categories: ${Categories} / Text: ${textChannel} / Voice: ${voiceChannel}`, { code: 'py' }), false)
-			.addField(`:busts_in_silhouette: Members [${guild.memberCount}]:`, Yuki.util.sendCode(`Humans: ${guild.memberCount - guild.members.filter(m => m.user.bot).size} / Bots: ${guild.members.filter(m => m.user.bot).size}`, { code: 'py' }), false)
+			.addField(`:busts_in_silhouette: Members [${guild.memberCount}]:`, Yuki.util.sendCode(`Humans: ${guild.members.filter(m => !m.user.bot).size} / Bots: ${guild.members.filter(m => m.user.bot).size}`, { code: 'py' }), false)
 			.addField(`${flags[guild.region]} Region:`, Yuki.util.sendCode(region[guild.region], { code: 'py' }), true)
 			.addField(':art: Roles:', Yuki.util.sendCode(guild.roles.size, { code: 'py' }), true)
 			.addField(':slight_smile: Emojis:', Yuki.util.sendCode(guild.emojis.size, { code: 'py' }), true)
