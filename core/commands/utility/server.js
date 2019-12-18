@@ -1,4 +1,5 @@
 const moment = require('moment');
+const regions = require('../../assets/json/regions.json');
 
 module.exports = {
 	name: 'server',
@@ -7,61 +8,6 @@ module.exports = {
 	category: 'utility',
 	enabled: true,
 	execute(Yuki, message, args) {
-		const regions = {
-			brazil: {
-				name: 'Brazil',
-				flag: ':flag_br:'
-			},
-			europe: {
-				name: 'Europe',
-				flag: ':flag_eu:'
-			},
-			hongkong: {
-				name: 'Hong Kong',
-				flag: ':flag_hk:'
-			},
-			india: {
-				name: 'India',
-				flag: ':flag_in:'
-			},
-			japan: {
-				name: 'Japan',
-				flag: ':flag_jp:'
-			},
-			russia: {
-				name: 'Russia',
-				flag: ':flag_ru:'
-			},
-			singapore: {
-				name: 'Singapore',
-				flag: ':flag_sg:'
-			},
-			southafrica: {
-				name: 'South Africa',
-				flag: ':flag_za:'
-			},
-			sydney: {
-				name: 'Sydney',
-				flag: ':flag_au:'
-			},
-			'us-central': {
-				name: 'US Central',
-				flag: ':flag_us:'
-			},
-			'us-east': {
-				name: 'US East',
-				flag: ':flag_us:'
-			},
-			'us-south': {
-				name: 'US South',
-				flag: ':flag_us:'
-			},
-			'us-west': {
-				name: 'US West',
-				flag: ':flag_us:'
-			}
-		};
-
 		const guild = Yuki.guilds.get(args[0]) || message.guild;
 
 		const categories = guild.channels.filter(({ type }) => type === 'category').size;

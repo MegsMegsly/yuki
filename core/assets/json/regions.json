@@ -1,0 +1,54 @@
+{
+	"brazil": {
+		"name": "Brazil",
+		"flag": ":flag_br:"
+	},
+	"europe": {
+		"name": "Europe",
+		"flag": ":flag_eu:"
+	},
+	"hongkong": {
+		"name": "Hong Kong",
+		"flag": ":flag_hk:"
+	},
+	"india": {
+		"name": "India",
+		"flag": ":flag_in:"
+	},
+	"japan": {
+		"name": "Japan",
+		"flag": ":flag_jp:"
+	},
+	"russia": {
+		"name": "Russia",
+		"flag": ":flag_ru:"
+	},
+	"singapore": {
+		"name": "Singapore",
+		"flag": ":flag_sg:"
+	},
+	"southafrica": {
+		"name": "Sout Africa",
+		"flag": ":flag_za:"
+	},
+	"sydney": {
+		"name": "Sydney",
+		"flag": ":flag_au:"
+	},
+	"us-central": {
+		"name": "US Central",
+		"flag": ":flag_us:"
+	},
+	"us-east": {
+		"name": "US East",
+		"flag": ":flag_us:"
+	},
+	"us-south": {
+		"name": "US South",
+		"flag": ":flag_us:"
+	},
+	"us-west": {
+		"name": "US West",
+		"flag": ":flag_us:"
+	}
+}
