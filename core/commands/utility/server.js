@@ -19,7 +19,7 @@ module.exports = {
 
 		const embed = new Yuki.RichEmbed()
 			.setColor('#445F52')
-			.setThumbnail(guild.iconURL)
+			.setThumbnail()
 			.addField(':mag: Name:', Yuki.util.sendCode(guild.name, { code: 'fix' }), true)
 			.addField(':id: ID:', Yuki.util.sendCode(guild.id, { code: 'js' }), true)
 			.addField(`:hash: Channels [${textChannels + voiceChannels}]:`, Yuki.util.sendCode(`Categories: ${categories} / Text: ${textChannels} / Voice: ${voiceChannels}`, { code: 'py' }), false)

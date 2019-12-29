@@ -12,6 +12,7 @@
     "jimp": "^0.9.3",
     "mal-scraper": "^2.6.5",
     "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
     "shitgram": "^1.4.2"
   },
   "scripts": {

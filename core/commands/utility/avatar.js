@@ -13,7 +13,7 @@ module.exports = {
 					.setTitle(user.tag)
 					.setDescription(`:park: **[Avatar URL](${user.displayAvatarURL})**`)
 					.setImage(user.displayAvatarURL);
-				message.channel.send(embed);
+				message.channel.send(embed).then(message.channel.stopTyping());
 			})
 			.catch((error) => {
 				const embed = new Yuki.RichEmbed()
