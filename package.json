@@ -1,11 +1,10 @@
 {
   "name": "yuki",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Discord Bot with multiple features",
   "main": "index.js",
   "author": "megga",
   "dependencies": {
-    "catbox.moe": "^0.1.0",
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "fortnite": "^4.3.2",
