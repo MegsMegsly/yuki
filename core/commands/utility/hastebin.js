@@ -13,7 +13,7 @@ module.exports = {
         message.channel.startTyping();
         const options = {
             method: 'POST',
-            body: args.slice(0).join(' '),
+            body: args.join(' '),
             headers: {
                 'Content-Type': 'application/json'
             }
