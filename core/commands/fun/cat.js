@@ -6,7 +6,7 @@ module.exports = {
 	description: 'Random images of cats',
 	category: 'fun',
 	enabled: true,
-	async execute(Yuki, message, args) {
+	execute(Yuki, message, args) {
 		randomPuppy('cats')
 			.then((url) => {
 				message.channel.send(new Yuki.RichEmbed()
