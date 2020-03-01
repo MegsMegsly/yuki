@@ -4,10 +4,10 @@ module.exports = {
 	category: 'bot',
 	enabled: true,
 	async execute(Yuki, message, args) {
-        message.channel.startTyping();
-        const invite = await Yuki.generateInvite(['ADMINISTRATOR']);
-        const embed = new Yuki.RichEmbed()
-            .setDescription(`(つ≧▽≦)つ This is my **[invite link!](${invite})**`)
-        message.channel.send(embed).then(message.channel.stopTyping());
+		const invite = await Yuki.generateInvite(['ADMINISTRATOR']);
+        message.channel.send(new Yuki.RichEmbed()
+        	.setColor(Yuki.util.hexColor.default)
+        	.setDescription(`(つ≧▽≦)つ This is my **[invite link!](${invite})**`)
+        );
 	}
 };
