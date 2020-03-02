@@ -1,1 +1,1 @@
-web: node index.js
+worker: yarn start
