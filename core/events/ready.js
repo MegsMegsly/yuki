@@ -9,7 +9,7 @@ module.exports = (Yuki) => {
 			type: 'WATCHING'
 		}, {
 			name: `${Yuki.users.size} Users`,
-			type: WATCHING
+			type: 'WATCHING'
 		}
 	];
 
