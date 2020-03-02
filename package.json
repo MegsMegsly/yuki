@@ -14,7 +14,6 @@
     "mal-scraper": "^2.6.5",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
-    "path": "^0.12.7",
     "random-puppy": "^1.1.0",
     "shitgram": "^1.4.2"
   },
