@@ -1,7 +1,10 @@
 require('dotenv/config');
 
 const Yuki = new (require('./structures/Discord.js'));
+const express = require('express');
 const fs = require('fs');
+
+const app = express();
 
 (events = module.exports.events = (dir = `${__dirname}/events/`) => {
 	fs.readdir(dir, (error, files) => {
@@ -32,5 +35,7 @@ const fs = require('fs');
 		});
 	});
 })();
+
+app.listen(process.env.PORT);
 
 Yuki.login(process.env.YUKI_TOKEN).catch(console.error);

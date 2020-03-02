@@ -1,14 +1,16 @@
 {
   "name": "yuki",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Discord Bot with multiple features",
   "main": "index.js",
   "author": "megga",
   "dependencies": {
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "fortnite": "^4.3.2",
     "jimp": "^0.9.3",
+    "lodash": "^4.17.15",
     "mal-scraper": "^2.6.5",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
