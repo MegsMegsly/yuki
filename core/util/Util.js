@@ -9,7 +9,8 @@ module.exports = {
 		},
 		success: '#77B255',
 		warning: '#FFCA42',
-		error: '#FF0000'
+		error: '#FF0000',
+		default: '#445F52'
 	},
 
 	sendCode(string, options = {}) {
