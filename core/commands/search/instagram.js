@@ -4,7 +4,7 @@ const shitgram = new Shitgram();
 
 module.exports = {
 	name: 'instagram',
-	aliases: ['insta'],
+	aliases: ['insta', 'ig'],
 	description: 'Show Instagram Profile',
 	category: 'utility',
 	enabled: true,
@@ -22,7 +22,7 @@ module.exports = {
 					.addField('Posts:', Yuki.util.sendCode(user.posts, { code: 'js' }), true)
 					.addField('Followers:', Yuki.util.sendCode(user.followers, { code: 'js' }), true)
 					.addField('Following:', Yuki.util.sendCode(user.following, { code: 'js' }), true)
-					.setFooter('Sponsored by Shitgram')
+					.setFooter('Sponsored by Shitgram', 'https://files.catbox.moe/fgb31w.png')
 				message.channel.send(embed).then(message.channel.stopTyping());
 			})
 			.catch((error) => {
