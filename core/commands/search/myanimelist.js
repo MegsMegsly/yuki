@@ -5,13 +5,14 @@ module.exports = {
 	aliases: ['mal'],
 	description: 'Show the anime in detail!',
 	category: 'utility',
+	usage: '<anime name>',
+	requirements: { arguments: true },
 	enabled: true,
 	execute(Yuki, message, args) {
-		message.channel.startTyping();
 		mal.getInfoFromName(args[0])
 			.then((anime) => {
-				const embed = new Yuki.RichEmbed()
-					.setColor('#445F52')
+				message.channel.send(new Yuki.RichEmbed()
+					.setColor(Yuki.util.hexColor.default)
 					.setThumbnail(anime.picture)
 					.setURL(anime.url)
 					.setTitle(`${anime.title}${anime.japaneseTitle ? ` (${anime.japaneseTitle})` : ''}`)
@@ -21,13 +22,13 @@ module.exports = {
 					.addField('Episodes:', Yuki.util.sendCode(anime.episodes, { code: 'js' }), true)
 					.addField('Duration:', Yuki.util.sendCode(anime.duration, { code: 'js' }), true)
 					.addField('Studios:', Yuki.util.sendCode(anime.studios || '-', { code: 'js' }), true)
-				message.channel.send(embed).then(message.channel.stopTyping());
+				);
 			})
 			.catch((error) => {
-				const embed = new Yuki.RichEmbed()
+				message.channel.send(new Yuki.RichEmbed()
 					.setColor(Yuki.util.hexColor.error)
 					.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
-				message.channel.send(embed).then(message.channel.stopTyping());
+				);
 			});
 	}
 };
