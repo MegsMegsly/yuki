@@ -16,7 +16,7 @@ module.exports = (Yuki, message) => {
 	if (command.requirements.acessDev && message.author.id !== process.env.OWNERID) return;
 
 	if (command.requirements.arguments && !args.length) {
-       		return message.channel.send(new Yuki.RichEmbed()
+       		return message.channel.send(new Yuki.MessageEmbed()
        			.setColor(Yuki.util.hexColor.warning)
        			.addField(':pencil: Usage:', Yuki.util.sendCode(`${process.env.PREFIX}${command.name} ${command.usage}`, { code: 'css' }))
        		);

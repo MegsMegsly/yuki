@@ -1,0 +1,22 @@
+{
+	"NONE": {
+		"name": "None",
+		"padlock": ":unlock:"
+	},
+	"LOW": {
+		"name": "Low",
+		"padlock": ":unlock:"
+	},
+	"MEDIUM": {
+		"name": "Medium",
+		"padlock": ":lock_with_ink_pen:"
+	},
+	"HIGH": {
+		"name": "High",
+		"padlock": ":closed_lock_with_key:"
+	},
+	"VERY_HIGH": {
+		"name": "Very High",
+		"padlock": ":lock:"
+	}
+}

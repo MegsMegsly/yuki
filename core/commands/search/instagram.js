@@ -13,21 +13,23 @@ module.exports = {
 	execute(Yuki, message, args) {
 		shitgram.user(args[0])
 			.then((user) => {
-				message.channel.send(new Yuki.RichEmbed()
+				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.default)
 					.setThumbnail(user.avatarURL)
-					.addField('Username:', Yuki.util.sendCode(user.username, { code: 'js' }), true)
-					.addField('ID:', Yuki.util.sendCode(user.id, { code: 'js' }), true)
-					.addField('Full Name:', Yuki.util.sendCode(user.fullName || '-', { code: 'js' }), true)
-					.addField('Biography:', Yuki.util.sendCode(user.biography || '-', { code: 'js' }), false)
-					.addField('Posts:', Yuki.util.sendCode(user.posts, { code: 'js' }), true)
-					.addField('Followers:', Yuki.util.sendCode(user.followers, { code: 'js' }), true)
-					.addField('Following:', Yuki.util.sendCode(user.following, { code: 'js' }), true)
+					.addFields(
+						{ name: 'Username:', value: Yuki.util.sendCode(user.username, { code: 'js' }), inline: true },
+						{ name: 'ID:', value: Yuki.util.sendCode(user.id, { code: 'js' }), inline: true },
+						{ name: 'Full Name:', value: Yuki.util.sendCode(user.fullname || '-', { code: 'js' }), inline: true },
+						{ name: 'Biography:', value: Yuki.util.sendCode(user.biography || '-', { code: 'js' }), inline: false },
+						{ name: 'Posts:', value: Yuki.util.sendCode(user.posts, { code: 'js' }), inline: true },
+						{ name: 'Followers:', value: Yuki.util.sendCode(user.followers, { code: 'js' }), inline: true },
+						{ name: 'Following:', value: Yuki.util.sendCode(user.following, { code: 'js' }), inline: true },
+					)
 					.setFooter('Sponsored by Shitgram', 'https://files.catbox.moe/fgb31w.png')
 				);
 			})
 			.catch((error) => {
-				message.channel.send(Yuki.RichEmbed()
+				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.error)
 					.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
 				);
