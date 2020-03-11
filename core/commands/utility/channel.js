@@ -15,17 +15,19 @@ module.exports = {
 			category: 'Category',
 			unknown: 'Unknown'
 		};
-		const channel = message.mentions.channels.first() || message.guild.channels.get(args[0]) || message.channel;
+		const channel = message.guild.channels.cache.get(args[0]) || message.channel;
 
-		message.channel.send(new Yuki.RichEmbed()
+		message.channel.send(new Yuki.MessageEmbed()
 			.setColor('#445F52')
-			.setThumbnail(message.guild.iconURL)
-			.addField(':mag: Name:', Yuki.util.sendCode(channel.name, { code: 'css' }), true)
-			.addField(':id: ID:', Yuki.util.sendCode(channel.id, { code: 'py' }), true)
-			.addField(':triangular_ruler: Category:', Yuki.util.sendCode(channel.parent ? channel.parent.name : 'None', { code: 'css' }), true)
-			.addField(':pencil: Topic:', Yuki.util.sendCode(channel.topic || 'Nothing'), false)
-			.addField(':books: Type:', Yuki.util.sendCode(types[channel.type], { code: 'py' }), true)
-			.addField(':underage: NSFW:', Yuki.util.sendCode(channel.nsfw ? 'Yes' : 'No', { code: 'py' }), true)
+			.setThumbnail(message.guild.iconURL({ format: 'png', dynamic: true, size: 2048 }))
+			.addFields(
+				{ name: ':mag: Name:', value: Yuki.util.sendCode(channel.name, { code: 'css' }), inline: true },
+				{ name: ':id: ID:', value: Yuki.util.sendCode(channel.id, { code: 'py' }), inline: true },
+				{ name: ':triangular_ruler: Category:', value: Yuki.util.sendCode(channel.parent ? channel.parent.name : 'None', { code: 'css' }), inline: true },
+				{ name: ':pencil: Topic:', value: Yuki.util.sendCode(channel.topic || 'Nothing'), inline: false },
+				{ name: ':books: Type:', value: Yuki.util.sendCode(types[channel.type], { code: 'py' }), inline: true },
+				{ name: ':underage: NSFW:', value: Yuki.util.sendCode(channel.nsfw ? 'Yes' : 'No', { code: 'py' }), inline: true },
+			)
 			.setFooter(`Channel created in ${moment(channel.createdAt).format('l')} - ${moment(channel.createdAt).startOf('hour').fromNow()}`)
 		);
 	}

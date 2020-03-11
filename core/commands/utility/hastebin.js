@@ -22,12 +22,12 @@ module.exports = {
                 };
 
                 const response = await fetch(`${baseURL}/documents`, options).then((response) => response.json());
-                message.channel.send(new Yuki.RichEmbed()
+                message.channel.send(new Yuki.MessageEmbed()
                         .setColor(Yuki.util.hexColor.default)
                         .setDescription(`${baseURL}/${response.key}`)
                 );
                 } catch (error) {
-                        message.channel.send(new Yuki.RichEmbed()
+                        message.channel.send(new Yuki.MessageEmbed()
                                 .setColor(Yuki.util.hexColor.error)
                                 .setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
                         );

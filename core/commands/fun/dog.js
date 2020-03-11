@@ -9,13 +9,13 @@ module.exports = {
 	execute(Yuki, message, args) {
 		randomPuppy('dogs')
 			.then((url) => {
-				message.channel.send(new Yuki.RichEmbed()
+				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.default)
 					.setImage(url)
 				);
 			})
 			.catch((error) => {
-				message.channel.send(new Yuki.RichEmbed()
+				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(yuki.util.hexColor.error)
 					.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
 				);

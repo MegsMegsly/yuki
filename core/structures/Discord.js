@@ -1,4 +1,4 @@
-const { Client, Collection, RichEmbed } = require('discord.js');
+const { Client, Collection, MessageEmbed } = require('discord.js');
 
 module.exports = class extends Client {
 	constructor(config) {
@@ -8,7 +8,7 @@ module.exports = class extends Client {
 
 		this.commands = new Collection();
 		this.aliases = new Collection();
-		this.RichEmbed = RichEmbed;
+		this.MessageEmbed = MessageEmbed;
 		this.util = require('../util/Util.js');
 	}
 };
