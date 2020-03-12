@@ -1,5 +1,5 @@
 module.exports = (Yuki) => {
-	Yuki.user.setPresence({ activity: { name: 'Getting Started!' }, status: 'dnd' });
+	Yuki.user.setPresence({ activity: { name: 'Getting Started!' } });
 	const presences = [
 
 		{
