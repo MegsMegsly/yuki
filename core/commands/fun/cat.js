@@ -7,7 +7,7 @@ module.exports = {
 	category: 'fun',
 	enabled: true,
 	execute(Yuki, message, args) {
-		randomPuppy('cats')
+		randomPuppy(this.name)
 			.then((url) => {
 				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.default)
@@ -16,7 +16,7 @@ module.exports = {
 			})
 			.catch((error) => {
 				message.channel.send(new Yuki.MessageEmbed()
-					.setColor(yuki.util.hexColor.error)
+					.setColor(Yuki.util.hexColor.error)
 					.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
 				);
 			});
