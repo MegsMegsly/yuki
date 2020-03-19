@@ -4,7 +4,7 @@ module.exports = {
 	name: 'myanimelist',
 	aliases: ['mal', 'anime'],
 	description: 'Show the anime in detail!',
-	category: 'utility',
+	category: 'search',
 	usage: '<anime name>',
 	requirements: { arguments: true },
 	enabled: true,

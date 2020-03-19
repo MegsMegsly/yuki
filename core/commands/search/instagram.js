@@ -6,7 +6,7 @@ module.exports = {
 	name: 'instagram',
 	aliases: ['insta', 'ig'],
 	description: 'Show Instagram Profile',
-	category: 'utility',
+	category: 'search',
     	usage: '<instagram username>',
     	requirements: { arguments: true },
 	enabled: true,
