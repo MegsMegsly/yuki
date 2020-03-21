@@ -29,12 +29,12 @@ module.exports = {
 						},
 						{
 							name: 'Full Name',
-							value: Yuki.util.sendCode(user.fullname || '-', { code: 'js' }),
+							value: Yuki.util.sendCode(user.fullName || '-', { code: 'js' }),
 							inline: true
 						},
 						{
 							name: ':pencil: Biography',
-							value: Yuki.util.sendCode(user.biography, { code: 'js' }),
+							value: Yuki.util.sendCode(user.biography || '-', { code: 'js' }),
 							inline: false
 						},
 						{
