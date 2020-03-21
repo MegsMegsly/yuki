@@ -24,12 +24,32 @@ module.exports = {
 
 			message.channel.send(new Yuki.MessageEmbed()
 				.setColor(Yuki.util.hexColor.default)
-				.addField('Bot', `\`${commands('bot').join('\` \`')}\``)
-				.addField('Fun', `\`${commands('fun').join('\` \`')}\``)
-				.addField('Image Manipulation', `\`${commands('image-manipulation').join('\` \`')}\``)
-				.addField('Moderation', `\`${commands('moderation').join('\` \`')}\``)
-				.addField('Search', `\`${commands('search').join('\` \`')}\``)
-				.addField('Utility', `\`${commands('utility').join('\` \`')}\``)
+				.addFields([
+					{
+						name: ':robot: Bot:',
+						value: `\`${commands('bot').join('\` \`')}\``
+					},
+					{
+						name: ':zany_face: Fun:',
+						value: `\`${commands('fun').join('\` \`')}\``
+					},
+					{
+						name: ':frame_photo: Image Manipulation:',
+						value: `\`${commands('image-manipulation').join('\` \`')}\``
+					},
+					{
+						name: ':scales: Moderation:',
+						value: `\`${commands('moderation').join('\` \`')}\``
+					},
+					{
+						name: ':mag: Search:',
+						value: `\`${commands('search').join('\` \`')}\``
+					},
+					{
+						name: ':tools: Utility:',
+						value: `\`${commands('utility').join('\` \`')}\``
+					}
+				])
 			);
 		}
 	}
