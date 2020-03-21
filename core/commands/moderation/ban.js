@@ -3,7 +3,7 @@ module.exports = {
 	aliases: ['banne'],
 	description: 'This command allows you to ban a member',
 	category: 'moderation',
-	usage: '<@user>',
+	usage: '<@user> <reason>',
 	requirements: { arguments: true },
 	enabled: true,
 	async execute(Yuki, message, args) {

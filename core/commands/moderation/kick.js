@@ -2,7 +2,7 @@ module.exports = {
 	name: 'kick',
 	description: 'This command allows you to kick a member',
 	category: 'moderation',
-	usage: '<@user>',
+	usage: '<@user> <reason>',
 	requirements: { arguments: true },
 	enabled: true,
 	async execute(Yuki, message, args) {
