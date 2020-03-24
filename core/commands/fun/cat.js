@@ -7,10 +7,7 @@ module.exports = {
 	category: 'fun',
 	enabled: true,
 	execute(Yuki, message, args) {
-		const subReddits = ['cat', 'CatTaps'];
-		const randomSubReddits = subReddits[Math.floor(Math.random() * subReddits.length)];
-
-		randomPuppy(randomSubReddits)
+		randomPuppy(Yuki.util.randomItem(['cat', 'CatTaps']))
 			.then((url) => {
 				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.default)
