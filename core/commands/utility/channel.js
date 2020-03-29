@@ -4,6 +4,7 @@ module.exports = {
 	name: 'channel',
 	aliases: ['channel-info'],
 	description: 'Responds with detailed information on a channel.',
+	usage: '<#channel>',
 	category: 'utility',
 	enabled: true,
 	execute(Yuki, message, args) {

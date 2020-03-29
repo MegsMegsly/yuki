@@ -4,10 +4,11 @@ module.exports = {
 	name: 'cat',
 	aliases: ['meow', 'cats'],
 	description: 'Random images of cats',
+	usage: '',
 	category: 'fun',
 	enabled: true,
 	execute(Yuki, message, args) {
-		randomPuppy(Yuki.util.randomItem(['cat', 'CatTaps']))
+		randomPuppy(Yuki.util.randomItem(['cat', 'CatTaps', 'catpictures']))
 			.then((url) => {
 				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.default)

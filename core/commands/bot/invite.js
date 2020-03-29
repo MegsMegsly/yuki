@@ -1,6 +1,8 @@
 module.exports = {
 	name: 'invite',
+	aliases: [''],
 	description: 'Invite link!',
+	usage: '',
 	category: 'bot',
 	enabled: true,
 	async execute(Yuki, message, args) {

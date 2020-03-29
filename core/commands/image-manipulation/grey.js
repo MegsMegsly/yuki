@@ -4,6 +4,7 @@ module.exports = {
 	name: 'grey',
 	aliases: ['greyscale'],
 	description: 'Image turns grey',
+        usage: '<@user>',
 	category: 'image-manipulation',
 	enabled: true,
 	execute(Yuki, message, args) {

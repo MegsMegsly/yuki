@@ -1,8 +1,9 @@
 module.exports = {
 	name: 'eval',
-	aliases: ['e'],
+	aliases: ['e', 'execute'],
 	description: 'Evaluates JavaScript code represented as a string.',
-	category: 'owner',
+	usage: '',
+	category: 'developer',
 	requirements: { acessDev: true },
 	enabled: true,
 	execute(Yuki, message, args) {

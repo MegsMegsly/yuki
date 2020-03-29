@@ -2,6 +2,7 @@ module.exports = {
 	name: 'ping',
 	aliases: ['pong', 'latency'],
 	description: 'Gets the bot latency!',
+	usage: '',
 	category: 'bot',
 	enabled: true,
 	async execute(Yuki, message, args) {

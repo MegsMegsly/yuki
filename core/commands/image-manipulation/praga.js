@@ -5,6 +5,7 @@ module.exports = {
 	name: 'praga',
 	aliases: ['morrepraga'],
 	description: 'For fun',
+        usage: '<@user>',
 	category: 'image-manipulation',
 	enabled: true,
 	execute(Yuki, message, args) {

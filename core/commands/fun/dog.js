@@ -4,6 +4,7 @@ module.exports = {
 	name: 'dog',
 	aliases: ['doug'],
 	description: 'Random images of dogs',
+	usage: '',
 	category: 'fun',
 	enabled: true,
 	execute(Yuki, message, args) {

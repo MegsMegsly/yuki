@@ -6,6 +6,7 @@ module.exports = {
 	name: 'server',
 	aliases: ['sv, guild'],
 	description: 'Show info server',
+	usage: '',
 	category: 'utility',
 	enabled: true,
 	execute(Yuki, message, args) {

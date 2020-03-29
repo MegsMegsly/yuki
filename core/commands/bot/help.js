@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'help',
-	aliases: [],
+	aliases: ['h'],
 	description: 'Shows all commands or a specific command',
 	usage: '<command>',
 	category: 'bot',
@@ -12,12 +12,14 @@ module.exports = {
 		if (commandName && (Yuki.commands.has(commandName) || findCommandByAlias)) {
 			const {
 				name,
+				aliases,
 				usage
 			} = Yuki.commands.get(commandName) || findCommandByAlias;
 
 			message.channel.send(new Yuki.MessageEmbed()
 				.setColor(Yuki.util.hexColor.default)
 				.addField(':pencil: Usage:', Yuki.util.sendCode(`${process.env.PREFIX}${name} ${usage}`, { code: 'css' }))
+				.setFooter(`Aliases: [${process.env.PREFIX}${aliases}]`)
 			);
 		} else {
 			const commands = (category) => Yuki.commands.filter((command) => command.category === category.toLowerCase()).map((command) => command.name);
