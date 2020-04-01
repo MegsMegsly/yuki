@@ -4,7 +4,7 @@ const verificationLevels = require('../../assets/json/verificationLevels.json');
 
 module.exports = {
 	name: 'server',
-	aliases: ['sv, guild'],
+	aliases: ['sv', 'guild'],
 	description: 'Show info server',
 	usage: '',
 	category: 'utility',
