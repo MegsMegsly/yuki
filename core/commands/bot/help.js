@@ -13,13 +13,15 @@ module.exports = {
 			const {
 				name,
 				aliases,
+				description,
 				usage
 			} = Yuki.commands.get(commandName) || findCommandByAlias;
 
 			message.channel.send(new Yuki.MessageEmbed()
 				.setColor(Yuki.util.hexColor.default)
 				.addField(':pencil: Usage:', Yuki.util.sendCode(`${process.env.PREFIX}${name} ${usage}`, { code: 'css' }))
-				.setFooter(`Aliases: [${process.env.PREFIX}${aliases}]`)
+				.addField(':notepad_spiral: Description:', Yuki.util.sendCode(description))
+				.setFooter(`Aliases: [${aliases}]`)
 			);
 		} else {
 			const commands = (category) => Yuki.commands.filter((command) => command.category === category.toLowerCase()).map((command) => command.name);
