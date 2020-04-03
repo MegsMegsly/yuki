@@ -1,4 +1,5 @@
 const moment = require('moment');
+const userStatus = require('../../assets/json/userStatus.json');
 
 module.exports = {
 	name: 'user',
@@ -9,7 +10,6 @@ module.exports = {
 	enabled: true,
 	execute(Yuki, message, args) {
 		const target = message.mentions.members.first() || args[0] ? message.guild.members.cache.get(args[0]) || { id: args[0] } : message.member;
-		const status = { online: 'Online', idle: 'Idle', dnd: 'Do Not Disturb', offline: 'Offline' };
 
 		message.guild.members.fetch(target.id)
 			.then((member) => {
@@ -24,7 +24,7 @@ module.exports = {
 						},
 						{
 							name: ':black_small_square: Nickname:',
-							value: Yuki.util.sendCode(member.nickname, { code: 'js' }),
+							value: Yuki.util.sendCode(member.nickname || 'None', { code: 'js' }),
 							inline: true
 						},
 						{
@@ -38,18 +38,18 @@ module.exports = {
 							inline: false
 						},
 						{
-							name: 'Status:',
-							value: Yuki.util.sendCode(status[member.presence.status], { code: 'py' }),
+							name: `${userStatus[member.presence.status].emoji} Status:`,
+							value: Yuki.util.sendCode(userStatus[member.presence.status].name, { code: 'py' }),
 							inline: true
 						},
 						{
 							name: ':desktop: Presence:',
-							value: Yuki.util.sendCode(member.user.presence.game ? member.user.presence.game.name: 'Nothing', { code: 'py' }),
+							value: Yuki.util.sendCode(member.presence.activities, { code: 'py' }),
 							inline: true
 						},
 						{
 							name: ':pushpin: Highest Role:',
-							value: member.roles.hoist,
+							value: member.roles.highest || member.roles.hoist,
 							inline: true
 						},
 						{
