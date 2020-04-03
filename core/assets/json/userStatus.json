@@ -1,0 +1,18 @@
+{
+	"online": {
+		"name": "Online",
+		"emoji": ":green_circle:"
+	},
+	"idle": {
+		"name": "Idle",
+		"emoji": ":yellow_circle:"
+	},
+	"dnd": {
+		"name": "Do Not Disturb",
+		"emoji": ":red_circle:"
+	},
+	"offline": {
+		"name": "Offline",
+		"emoji": ":white_circle:"
+	}
+}
