@@ -19,6 +19,7 @@ module.exports = {
 		const members = guild.members.cache.filter(({ user }) => !user.bot).size;
 		const bots = guild.members.cache.filter(({ user }) => user.bot).size;
 		const mfaLevels = ['None', 'Elevated'];
+		const explicitContent = { DISABLED: 'Disabled', MEMBERS_WITHOUT_ROLES: 'Members without roles', ALL_MEMBERS: 'All members' };
 
 		message.channel.send(new Yuki.MessageEmbed()
 			.setColor(Yuki.util.hexColor.default)
@@ -46,7 +47,7 @@ module.exports = {
 				},
 				{ 
 					name: ':card_box: Explicit Filter:', 
-					value: Yuki.util.sendCode(guild.explicitContentFilter, { code: 'py' }), 
+					value: Yuki.util.sendCode(explicitContent[guild.explicitContentFilter], { code: 'py' }), 
 					inline: true 
 				},
 				{ 
