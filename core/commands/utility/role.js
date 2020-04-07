@@ -7,7 +7,7 @@ module.exports = {
 	requirements: { arguments: false },
 	enabled: true,
 	execute(Yuki, message, args) {
-		const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.member.roles.hoist;
+		const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.member.roles.highest;
 		const serialized = role.permissions.serialize();
 		const permissions = Object.keys(serialized).filter(perm => serialized[perm]);
 
