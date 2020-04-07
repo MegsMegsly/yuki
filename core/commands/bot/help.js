@@ -34,6 +34,10 @@ module.exports = {
 						value: `\`${commands('bot').join('\` \`')}\``
 					},
 					{
+						name: ':wrench: Configuration:',
+						value: `\`${commands('configuration').join('\` \`')}\``
+					},
+					{
 						name: ':zany_face: Fun:',
 						value: `\`${commands('fun').join('\` \`')}\``
 					},
