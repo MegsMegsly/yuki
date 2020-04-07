@@ -36,6 +36,12 @@ const app = express();
 	});
 })();
 
+((Loaders) => {
+	for (let name in Loaders) {
+		Loaders[name].load(Yuki);
+	}
+})(require('./loaders'));
+
 app.listen(process.env.PORT);
 
 Yuki.login(process.env.YUKI_TOKEN).catch(console.error);
