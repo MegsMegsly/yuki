@@ -1,21 +1,13 @@
 module.exports = {
 	name: 'kick',
+	aliases: [''],
 	description: 'This command allows you to kick a member',
 	category: 'moderation',
-	usage: '<@user> <reason>',
-	requirements: { arguments: true },
+	usage: '(@user) <reason>',
+	requirements: { arguments: true, permissions: ['KICK_MEMBERS'] },
 	enabled: true,
 	async execute(Yuki, message, args) {
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-		if(!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send(new Yuki.MessageEmbed()
-			.setColor(Yuki.util.hexColor.warning)
-			.setDescription('_You do not have sufficient **permissions** to run this command._')
-		);
-		if(!member.kickable) return message.channel.send(new Yuki.MessageEmbed()
-			.setColor(Yuki.util.hexColor.warning)
-			.setDescription('_I do not have enough **permissions** to run this command!_')
-		);
-
 		const reason = args.slice(1).join(' ');
 
 		member.kick({ reason })
