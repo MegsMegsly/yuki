@@ -1,3 +1,5 @@
+const { inspect } = require('util');
+
 module.exports = {
 	name: 'eval',
 	aliases: ['e', 'execute'],
@@ -6,10 +8,11 @@ module.exports = {
 	category: 'developer',
 	requirements: { acessDev: true },
 	enabled: true,
-	execute(Yuki, message, args) {
-		const expression = message.content.split(' ').slice(1).join(' ');
+	async execute(Yuki, message, args) {
+		const expression = await eval(message.content.split(' ').slice(1).join(' '));
+		const evaluated = inspect(expression, { depth: 0 })
 		try {
-			message.channel.send(eval(expression), { code: 'js' });
+			message.channel.send(evaluated, { code: 'js' });
 		} catch (error) {
 			message.channel.send(error, { code: 'js' });
 		}
