@@ -9,9 +9,9 @@ module.exports = {
 	usage: '<@user|id>',
 	enabled: true,
 	execute(Yuki, message, args) {
-		const target = message.mentions.members.first() || args[0] ? message.guild.members.cache.get(args[0]) || { id: args[0] } : message.member;
+		const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
-		message.guild.members.fetch(target.id.replace(/[\\<>@#&!]/g, ""))
+		message.guild.members.fetch(target.id)
 			.then((member) => {
 				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.default)
