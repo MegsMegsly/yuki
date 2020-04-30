@@ -6,10 +6,10 @@ module.exports = {
 	aliases: ['member', 'whois', 'memberInfo', 'userInfo'],
 	description: 'Show user info!',
 	category: 'utility',
-	usage: '<@user>',
+	usage: '<@user|id>',
 	enabled: true,
 	execute(Yuki, message, args) {
-		const target = message.mentions.members.first() || args[0] ? message.guild.members.cache.get(args[0]) || { id: args[0] } : message.member;
+		const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
 		message.guild.members.fetch(target.id)
 			.then((member) => {
@@ -44,7 +44,7 @@ module.exports = {
 						},
 						{
 							name: ':desktop: Presence:',
-							value: Yuki.util.sendCode(member.presence.activities, { code: 'py' }),
+							value: Yuki.util.sendCode(member.presence.activities.length ? member.presence.activities[0].name : 'None'),
 							inline: true
 						},
 						{
