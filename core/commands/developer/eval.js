@@ -6,15 +6,20 @@ module.exports = {
 	description: 'Evaluates JavaScript code represented as a string.',
 	usage: '',
 	category: 'developer',
-	requirements: { acessDev: true },
+	requirements: { devOnly: true },
 	enabled: true,
 	async execute(Yuki, message, args) {
-		const expression = await eval(message.content.split(' ').slice(1).join(' '));
-		const evaluated = inspect(expression, { depth: 0 })
 		try {
-			message.channel.send(evaluated, { code: 'js' });
+			const expression = await eval(message.content.split(' ').slice(1).join(' '));
+			const evaluated = inspect(expression, { depth: 0 });
+			await message.channel.send(this.clean(evaluated, { code: 'js' }));
 		} catch (error) {
-			message.channel.send(error, { code: 'js' });
+			message.channel.send(this.clean(error), { code: 'js' });
 		}
+	},
+
+	clean(text) {
+		const blankSpace = String.fromCharCode(8203);
+		return typeof text === 'string' ? text.replace(/`/g, '`' + blankSpace).replace(/@/g, '@' + blankSpace) : text;
 	}
 };
