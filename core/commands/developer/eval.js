@@ -12,7 +12,7 @@ module.exports = {
 		try {
 			const expression = await eval(message.content.split(' ').slice(1).join(' '));
 			const evaluated = inspect(expression, { depth: 0 });
-			await message.channel.send(this.clean(evaluated, { code: 'js' }));
+			await message.channel.send(this.clean(evaluated), { code: 'js' });
 		} catch (error) {
 			message.channel.send(this.clean(error), { code: 'js' });
 		}
