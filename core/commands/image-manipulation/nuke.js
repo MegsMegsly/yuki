@@ -3,7 +3,7 @@ const Jimp = require('jimp');
 module.exports = {
 	name: 'nuke',
 	aliases: [],
-	description: '',
+	description: 'Tones image colors',
         usage: '<@user>',
 	category: 'image-manipulation',
 	enabled: true,
