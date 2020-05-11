@@ -1,3 +1,5 @@
+const Guild = require('../../database/schemas/Guild.js');
+
 module.exports = {
 	name: 'help',
 	aliases: ['h'],
@@ -7,7 +9,8 @@ module.exports = {
 	enabled: true,
 	async execute(Yuki, message, args) {
 		const [commandName] = args;
-		const findCommandByAlias = Yuki.commands.find((command) => command.aliases && command.aliases.includes(commandName))
+		const findCommandByAlias = Yuki.commands.find((command) => command.aliases && command.aliases.includes(commandName));
+		const guild = await Guild.findOne({ guildID: message.guild.id });
 
 		if (commandName && (Yuki.commands.has(commandName) || findCommandByAlias)) {
 			const {
@@ -19,7 +22,7 @@ module.exports = {
 
 			message.channel.send(new Yuki.MessageEmbed()
 				.setColor(Yuki.util.hexColor.default)
-				.addField(':pencil: Usage:', Yuki.util.sendCode(`${process.env.PREFIX}${name} ${usage}`, { code: 'css' }))
+				.addField(':pencil: Usage:', Yuki.util.sendCode(`${guild.prefix}${name} ${usage}`, { code: 'css' }))
 				.addField(':notepad_spiral: Description:', Yuki.util.sendCode(description))
 				.setFooter(`Aliases: [${aliases}]`)
 			);
