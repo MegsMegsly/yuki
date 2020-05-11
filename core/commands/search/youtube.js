@@ -3,7 +3,7 @@ const Youtube = new (require('simple-youtube-api'))(process.env.YOUTUBE_API_KEY)
 module.exports = {
 	name: 'youtube',
 	aliases: ['yt'],
-	description: '',
+	description: 'Search videos on YouTube and send video URL',
 	category: 'search',
 	usage: '(search)',
 	requirements: { arguments: true },
