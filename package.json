@@ -1,6 +1,6 @@
 {
   "name": "yuki",
-  "version": "3.3.47",
+  "version": "3.3.48",
   "description": "Discord Bot with multiple features",
   "main": "index.js",
   "author": "MegsMegsly",
@@ -15,7 +15,8 @@
     "mongoose": "^5.9.7",
     "node-fetch": "^2.6.0",
     "random-puppy": "^1.1.0",
-    "shitgram": "https://github.com/shitgram/node-shitgram.git#tofix"
+    "shitgram": "https://github.com/shitgram/node-shitgram.git#tofix",
+    "simple-youtube-api": "^5.2.1"
   },
   "scripts": {
     "start": "node index.js",
