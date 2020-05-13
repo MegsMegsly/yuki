@@ -1,6 +1,6 @@
 {
   "name": "yuki",
-  "version": "3.3.49",
+  "version": "3.3.50",
   "description": "Discord Bot with multiple features",
   "main": "index.js",
   "author": "MegsMegsly",
@@ -13,6 +13,7 @@
     "mal-scraper": "^2.6.5",
     "moment": "^2.24.0",
     "mongoose": "^5.9.7",
+    "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.0",
     "random-puppy": "^1.1.0",
     "shitgram": "https://github.com/shitgram/node-shitgram.git#tofix",
