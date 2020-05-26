@@ -14,12 +14,12 @@ module.exports = (Yuki, message) => {
 			if (!command) return;
 
 			command.requirements = _.defaults(command.requirements, {
-				acessDev: false,
+				devOnly: false,
 				arguments: false,
 				permissions: []
 			});
 
-			if (command.requirements.acessDev && message.author.id !== process.env.OWNERID) return;
+			if (command.requirements.devOnly && message.author.id !== process.env.OWNERID) return;
 
 			if (command.requirements.arguments && !args.length) {
 		       		return message.channel.send(new Yuki.MessageEmbed()

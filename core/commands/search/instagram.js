@@ -1,6 +1,4 @@
-const Shitgram = require('shitgram');
-
-const shitgram = new Shitgram();
+const Shitgram = new (require('shitgram'))();
 
 module.exports = {
 	name: 'instagram',
@@ -11,7 +9,7 @@ module.exports = {
     	requirements: { arguments: true },
 	enabled: true,
 	execute(Yuki, message, args) {
-		shitgram.user(args[0])
+		Shitgram.user(args[0])
 			.then((user) => {
 				message.channel.send(new Yuki.MessageEmbed()
 					.setColor(Yuki.util.hexColor.default)
