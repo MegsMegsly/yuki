@@ -1,3 +1,3 @@
-module.exports = (Yuki, error) {
+module.exports = (Yuki, error) => {
 	console.log(error.message);
 }
