@@ -1,3 +1,4 @@
 module.exports = {
-  DatabaseLoader: require('./DatabaseLoader.js')
+  DatabaseLoader: require('./DatabaseLoader.js'),
+  HTTPLoader: require('./HTPPLoader.js')
 };
