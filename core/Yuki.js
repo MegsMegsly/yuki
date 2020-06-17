@@ -1,5 +1,3 @@
-require('dotenv/config');
-
 const Yuki = new (require('./structures/Discord.js'));
 const fs = require('fs');
 
