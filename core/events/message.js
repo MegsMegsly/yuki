@@ -2,8 +2,7 @@ const _ = require('lodash');
 const Guild = require('../database/schemas/Guild.js');
 
 module.exports = async (Yuki, message) => {
-	const guild = await Guild.findOne({ guildID: message.guild.id });
-	const prefix = guild.prefix;
+	const { prefix } = await Guild.findOne({ guildID: message.guild.id });
 
 	if (message.author.bot || message.channel.type === 'dm' || !message.content.startsWith(prefix)) return;
 	const args = message.content.slice(prefix.length).split(/ +/);
