@@ -1,4 +1,4 @@
-const Neko = new (require('nekos.life'))();
+const fetch = require('node-fetch')
 
 module.exports = {
 	name: 'waifu',
@@ -7,19 +7,18 @@ module.exports = {
 	usage: '',
 	category: 'fun',
 	enabled: true,
-	execute(Yuki, message, args) {
-		Neko.sfw.waifu()
-			.then((image) => {
-				message.channel.send(new Yuki.MessageEmbed()
-					.setColor(Yuki.util.hexColor.default)
-					.setImage(image.url)
-				);
-			})
-			.catch((error) => {
-				message.channel.send(new Yuki.MessageEmbed()
-					.setColor(Yuki.util.hexColor.error)
-					.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
-				);
-			});
+	async execute(Yuki, message, args) {
+		try {
+			const response = await fetch('https://waifu.pics/api/sfw').then(res => res.json());
+			message.channel.send(new Yuki.MessageEmbed()
+				.setColor(Yuki.util.hexColor.default)
+				.setImage(response.url)
+			);
+		} catch (error) {
+			message.channel.send(new Yuki.MessageEmbed()
+				.setColor(Yuki.util.hexColor.error)
+				.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
+			);
+		}
 	}
 };
