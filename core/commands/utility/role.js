@@ -7,7 +7,14 @@ module.exports = {
 	requirements: { arguments: false },
 	enabled: true,
 	execute(Yuki, message, args) {
-		const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.member.roles.highest;
+		if (message.mentions.roles.size) {
+			role = message.mentions.roles.first();
+		} else if (args[0] == null) {
+			role = message.member.roles.highest;
+		} else {
+			role = message.guild.roles.cache.filter((role) => role.name.toLowerCase().startsWith(args.join(' ').toLowerCase())).first() || message.guild.roles.cache.get(args[0])
+		}
+
 		const serialized = role.permissions.serialize();
 		const permissions = Object.keys(serialized).filter(perm => serialized[perm]);
 
