@@ -17,35 +17,35 @@ module.exports = {
 					.setURL(anime.url)
 					.setTitle(`${anime.title}${anime.japaneseTitle ? ` (${anime.japaneseTitle})` : ''}`)
 					.addFields([
-						{ 
-							name: 'Score:', 
-							value: Yuki.util.sendCode(anime.score, { code: 'js' }), 
-							inline: true 
+						{
+							name: 'Score:',
+							value: Yuki.util.sendCode(anime.score, { code: 'js' }),
+							inline: true
 						},
-						{ 
-							name: 'Ranked:', 
-							value: Yuki.util.sendCode(anime.ranked, { code: 'js' }), 
-							inline: true 
+						{
+							name: 'Ranked:',
+							value: Yuki.util.sendCode(anime.ranked, { code: 'js' }),
+							inline: true
 						},
-						{ 
-							name: 'Synopsis:', 
-							value: Yuki.util.sendCode(anime.synopsis.split('\n\n')[0] || '-', { code: 'js' }), 
-							inline: false 
+						{
+							name: 'Synopsis:',
+							value: Yuki.util.sendCode(anime.synopsis.split('\n\n')[0] || '-', { code: 'js' }),
+							inline: false
 						},
-						{ 
-							name: 'Episodes:', 
-							value: Yuki.util.sendCode(anime.episodes, { code: 'js' }), 
-							inline: true 
+						{
+							name: 'Episodes:',
+							value: Yuki.util.sendCode(anime.episodes, { code: 'js' }),
+							inline: true
 						},
-						{ 
-							name: 'Duration:', 
-							value: Yuki.util.sendCode(anime.duration, { code: 'js' }), 
-							inline: true 
+						{
+							name: 'Duration:',
+							value: Yuki.util.sendCode(anime.duration, { code: 'js' }),
+							inline: true
 						},
-						{ 
-							name: 'Studios:', 
-							value: Yuki.util.sendCode(anime.studios || '-', { code: 'js' }), 
-							inline: true 
+						{
+							name: 'Studios:',
+							value: Yuki.util.sendCode(anime.studios || '-', { code: 'js' }),
+							inline: true
 						},
 					])
 				);
