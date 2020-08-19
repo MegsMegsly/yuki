@@ -10,7 +10,7 @@ module.exports = {
 	async execute(Yuki, message, args) {
 		try {
 			const reddit = await Reddit(Yuki.util.randomItem(['dog', 'pitbulls']))
-			
+
 			message.channel.send(new Yuki.MessageEmbed()
 				.setColor(Yuki.util.hexColor.default)
 				.setImage(Yuki.util.randomItem(reddit.data.children).data.url)
