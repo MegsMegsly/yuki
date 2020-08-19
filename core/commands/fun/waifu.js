@@ -9,7 +9,7 @@ module.exports = {
 	enabled: true,
 	async execute(Yuki, message, args) {
 		try {
-                        const waifu = await WaifuPics.sfw()
+                	const waifu = await WaifuPics.sfw()
 
 			message.channel.send(new Yuki.MessageEmbed()
 				.setColor(Yuki.util.hexColor.default)
