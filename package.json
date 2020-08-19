@@ -14,7 +14,8 @@
     "mongoose": "^5.9.7",
     "node-fetch": "^2.6.0",
     "shitgram": "https://github.com/shitgram/node-shitgram.git#tofix",
-    "simple-youtube-api": "^5.2.1"
+    "simple-youtube-api": "^5.2.1",
+    "waifu.pics": "^0.0.2"
   },
   "scripts": {
     "start": "node index.js",
