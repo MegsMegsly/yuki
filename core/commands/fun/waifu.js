@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const WaifuPics = require('waifu.pics')
 
 module.exports = {
 	name: 'waifu',
@@ -9,10 +9,11 @@ module.exports = {
 	enabled: true,
 	async execute(Yuki, message, args) {
 		try {
-			const response = await fetch('https://waifu.pics/api/sfw').then(res => res.json());
+      const waifu = await WaifuPics.sfw()
+
 			message.channel.send(new Yuki.MessageEmbed()
 				.setColor(Yuki.util.hexColor.default)
-				.setImage(response.url)
+				.setImage(waifu.url)
 			);
 		} catch (error) {
 			message.channel.send(new Yuki.MessageEmbed()
