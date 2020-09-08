@@ -16,9 +16,13 @@ class DatabaseLoader extends Loader {
   }
 
   initializeDatabase () {
+    this.client.database = Mongo
     Mongo._connect()
       .then(() => this.client.log('Initalized database'))
-      .catch((error) => this.client.log(error.message))
+      .catch((error) => {
+        this.client.log(error.message)
+        this.client.database = null
+      })
   }
 }
 
