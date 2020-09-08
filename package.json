@@ -7,23 +7,21 @@
   "dependencies": {
     "discord.js": "^12.0.1",
     "express": "^4.17.1",
-    "jimp": "^0.9.3",
-    "lodash": "^4.17.15",
-    "mal-scraper": "^2.6.5",
-    "moment": "^2.24.0",
-    "mongoose": "^5.9.7",
-    "node-fetch": "^2.6.0",
-    "shitgram": "https://github.com/shitgram/node-shitgram.git#tofix",
-    "simple-youtube-api": "^5.2.1",
-    "waifu.pics": "^0.0.2"
+    "mongoose": "^5.9.7"
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon -r dotenv/config index.js"
+    "dev": "nodemon -r dotenv/config core/Yuki.js"
   },
   "license": "MIT",
   "devDependencies": {
     "dotenv": "^8.2.0",
+    "eslint": "^7.8.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^2.0.2"
   }
 }
