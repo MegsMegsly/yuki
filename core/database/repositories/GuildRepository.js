@@ -6,9 +6,9 @@ class GuildRepository extends MongoRepository {
     super(GuildSchema)
   }
 
-  add (guild) {
+  _add (guild) {
     return this.add({
-      _id: guild._id,
+      _id: guild.id,
       prefix: process.env.YUKI_PREFIX
     })
   }
