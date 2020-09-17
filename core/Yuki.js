@@ -20,4 +20,4 @@ class Main extends Client {
 
 const client = new Main()
 
-client.login().catch((error) => this.log(error.message))
+client.login().catch((error) => client.log(error.message))
