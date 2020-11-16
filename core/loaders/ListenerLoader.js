@@ -1,6 +1,5 @@
 const { Loader } = require('../structures')
-
-const fs = require('fs')
+const { FileUtils } = require('../utils')
 
 class ListenerLoader extends Loader {
   constructor (client) {
@@ -16,11 +15,10 @@ class ListenerLoader extends Loader {
   }
 
   initializeListeners (directory = 'core/listeners') {
-    const listeners = fs.readdirSync(directory)
-    for (const fileName of listeners) {
-      const listener = new (require(`../listeners/${fileName}`))(this.client)
-      this.client.on(fileName.split('.')[0], (...v) => listener['event' + listener.constructor.name](...v))
-    }
+    return FileUtils.requireDirectory(directory, (Listener, event) => {
+      const listener = new Listener(this.client)
+      this.client.on(event, (...v) => listener['event' + listener.constructor.name](...v))
+    }, (error) => this.client.log(error))
   }
 }
 
