@@ -5,9 +5,9 @@ class Message extends Listener {
     super(client)
   }
 
-  eventMessage (message) {
+  async eventMessage (message) {
     try {
-      const prefix = process.env.PREFIX
+      const { prefix } = await this.client.database.guilds.findOne(message.guild.id)
 
       if (message.author.bot || !message.content.startsWith(prefix)) return
       const parameters = message.content.slice(prefix.length).split(/ +/)
