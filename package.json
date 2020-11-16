@@ -1,12 +1,13 @@
 {
   "name": "yuki",
-  "version": "3.3.50",
+  "version": "4.0.0",
   "description": "Discord Bot with multiple features",
   "main": "index.js",
   "author": "Samuel Durante",
   "dependencies": {
     "discord.js": "^12.0.1",
     "express": "^4.17.1",
+    "lodash": "^4.17.20",
     "mongoose": "^5.9.7",
     "transform-props": "^1.0.1"
   },
