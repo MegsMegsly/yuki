@@ -19,11 +19,11 @@ class MongoRepository {
   }
 
   findAll (projection) {
-    return this.model.find({}, projection).then(e => e.map(this.parse))
+    return this.model.find({}, projection).then((e) => e.map(this.parse))
   }
 
   get (id, projection) {
-    return this.findOne(id, projection).then(e => e || this.add({ _id: id }))
+    return this.findOne(id, projection).then((e) => e || this.add({ _id: id }))
   }
 
   remove (id) {
