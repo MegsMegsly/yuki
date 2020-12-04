@@ -4,8 +4,8 @@ const { MessageAttachment } = require('discord.js')
 module.exports = {
   name: 'tts',
   aliases: [],
-  description: '',
-  usage: '',
+  description: 'Converts text into speech',
+  usage: '[message]',
   category: 'utility',
   async execute (message) {
     try {
