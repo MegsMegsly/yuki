@@ -13,7 +13,7 @@ module.exports = {
 
       message.channel.send(new MessageAttachment(tts, 'tts.mp3'))
     } catch (error) {
-      message.channel.send(error.message, { code: 'js' })
+      message.channel.send(`Error: ${error.message}`, { code: 'js' })
     }
   }
 }
