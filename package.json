@@ -8,6 +8,7 @@
     "discord.js": "^12.0.1",
     "express": "^4.17.1",
     "google-tts-api": "^0.0.5",
+    "googleapis": "^66.0.0",
     "lodash": "^4.17.20",
     "mongoose": "^5.9.7",
     "node-fetch": "^2.6.1",
