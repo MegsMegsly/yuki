@@ -1,7 +1,7 @@
 module.exports = {
   name: 'youtube',
   aliases: ['yt'],
-  description: '',
+  description: 'Search for a video on YouTube',
   usage: '[search]',
   requirements: { parameters: true },
   category: 'fun',

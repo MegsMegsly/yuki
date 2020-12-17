@@ -5,7 +5,7 @@ const baseURL = 'https://hastebin.com'
 module.exports = {
   name: 'hastebin',
   aliases: ['haste'],
-  description: '',
+  description: 'Transcribe to hastebin',
   usage: '[message]',
   requirements: { parameters: true },
   category: 'utility',
