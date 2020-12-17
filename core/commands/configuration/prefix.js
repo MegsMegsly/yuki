@@ -7,7 +7,6 @@ module.exports = {
   category: 'configuration',
   usage: '<new prefix|(reset)>',
   requirements: { permissions: ['MANAGE_GUILD'] },
-  enabled: true,
   async execute (message) {
     try {
       const guild = await message.client.database.guilds.findOne(message.guild.id)
