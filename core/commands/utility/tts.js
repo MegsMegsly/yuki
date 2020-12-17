@@ -6,6 +6,7 @@ module.exports = {
   aliases: [],
   description: 'Converts text into speech',
   usage: '[message]',
+  requirements: { parameters: true },
   category: 'utility',
   async execute (message) {
     try {

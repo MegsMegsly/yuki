@@ -2,7 +2,8 @@ module.exports = {
   name: 'youtube',
   aliases: ['yt'],
   description: '',
-  usage: '',
+  usage: '[search]',
+  requirements: { parameters: true },
   category: 'fun',
   async execute (message) {
     try {

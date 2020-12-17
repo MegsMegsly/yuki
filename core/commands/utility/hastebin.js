@@ -7,6 +7,7 @@ module.exports = {
   aliases: ['haste'],
   description: '',
   usage: '[message]',
+  requirements: { parameters: true },
   category: 'utility',
   async execute (message) {
     try {

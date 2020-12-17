@@ -1,3 +1,5 @@
+const _ = require('lodash')
+
 const { Listener } = require('../structures')
 
 class Message extends Listener {
@@ -17,6 +19,23 @@ class Message extends Listener {
       if (!command) return
 
       message.parameters = parameters
+      command.requirements = _.defaults(command.requirements, {
+        devOnly: false,
+        parameters: false,
+        permissions: []
+      })
+
+      if (command.requirements.devOnly && message.author.id !== process.env.OWNER_ID) return
+
+      if (command.requirements.parameters && !parameters.length) {
+        return message.channel.send(`${prefix}${command.name} ${command.usage}`, { code: 'fix' })
+      }
+
+      if (command.requirements.permissions.length) {
+        const requiredPermissions = _.difference(command.requirements.permissions, message.member.permissions.toArray())
+
+        if (requiredPermissions.length) return message.channel.send(`⛔ Required permissions: \`${command.requirements.permissions}\``)
+      }
 
       command.execute(message)
     } catch (error) {
