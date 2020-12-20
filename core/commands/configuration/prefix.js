@@ -1,34 +1,35 @@
-const Guild = require('../../database/schemas/Guild.js');
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-	name: 'prefix',
-	aliases: ['setprefix', 'newprefix'],
-	description: 'Server prefix manager',
-	category: 'configuration',
-	usage: '<new prefix|(reset)>',
-	requirements: { permissions: ['MANAGE_GUILD'] },
-	enabled: true,
-	async execute(Yuki, message, args) {
-		if (!args[0]) {
-			const guild = await Guild.findOne({ guildID: message.guild.id })
-			if (guild && guild.prefix) {
-				message.channel.send(new Yuki.MessageEmbed()
-					.setColor(Yuki.util.hexColor.default)
-					.setDescription(Yuki.util.sendCode(`Current prefix: ${guild.prefix}`, { code: 'css' }))
-				);
-			}
-		} else if (args[0] && args[0].toLowerCase() === 'reset') {
-			await Guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { prefix: process.env.PREFIX } });
-			message.channel.send(new Yuki.MessageEmbed()
-				.setColor(Yuki.util.hexColor.error)
-				.setDescription(Yuki.util.sendCode('Reseted prefix!', { code: 'css' }))
-			);
-		} else {
-			await Guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { prefix: args[0] } });
-			message.channel.send(new Yuki.MessageEmbed()
-				.setColor(Yuki.util.hexColor.success)
-				.setDescription(Yuki.util.sendCode(`New prefix: ${args[0]}`, { code: 'css' }))
-			);
-		}
-	}
-};
+  name: 'prefix',
+  aliases: ['setprefix', 'newprefix'],
+  description: 'Server prefix manager',
+  category: 'configuration',
+  usage: '<new prefix|(reset)>',
+  requirements: { permissions: ['MANAGE_GUILD'] },
+  async execute (message) {
+    try {
+      const guild = await message.client.database.guilds.findOne(message.guild.id)
+
+      if (!message.parameters[0]) {
+        if (guild && guild.prefix) {
+          message.channel.send(new MessageEmbed()
+            .setDescription(`Current prefix: \`${guild.prefix}\``)
+          )
+        }
+      } else if (message.parameters[0] && message.parameters[0].toLowerCase() === 'reset') {
+        await message.client.database.guilds.update(message.guild.id, { $set: { prefix: process.env.YUKI_PREFIX } })
+        message.channel.send(new MessageEmbed()
+          .setDescription(`Reseted prefix: \`${guild.prefix}\``)
+        )
+      } else {
+        await message.client.database.guilds.update(message.guild.id, { $set: { prefix: message.parameters[0] } })
+        message.channel.send(new MessageEmbed()
+          .setDescription(`New prefix: \`${message.parameters[0]}\``)
+        )
+      }
+    } catch (error) {
+      message.channel.send(`Error: ${error.message}`, { code: 'js' })
+    }
+  }
+}

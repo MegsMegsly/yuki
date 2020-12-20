@@ -1,40 +1,23 @@
-const Yuki = new (require('./structures/Discord.js'));
-const fs = require('fs');
+const { Client } = require('./structures')
 
-(events = module.exports.events = (dir = `${__dirname}/events/`) => {
-	fs.readdir(dir, (error, files) => {
-		if (error) return console.log(error);
-		files.forEach((file) => {
-			if (fs.lstatSync(dir + file).isDirectory()) {
-				events(dir + file + '/');
-				return;
-			}
-			const event = require(dir + file);
-			Yuki.on(file.split('.')[0], event.bind(null, Yuki));
-		});
-	});
-})();
+const Loaders = require('./Loaders')
 
-(commands = module.exports.commands = (dir = `${__dirname}/commands/`) => {
-	fs.readdir(dir, (error, files) => {
-		if (error) return console.log(error);
-		files.forEach((file) => {
-			if (fs.lstatSync(dir + file).isDirectory()) {
-				commands(dir + file + '/');
-				return;
-			}
-			delete require.cache[require.resolve(dir + file)];
-			const command = require(dir + file);
-			Yuki.commands.set(command.name, command);
-			if (command.aliases) command.aliases.forEach((alias) => Yuki.aliases.set(alias, command.name));
-		});
-	});
-})();
+class Main extends Client {
+  constructor () {
+    super({
+      disableMentions: 'everyone'
+    })
 
-((Loaders) => {
-	for (let name in Loaders) {
-		Loaders[name].load(Yuki);
-	}
-})(require('./loaders'));
+    this.initializeLoaders()
+  }
 
-Yuki.login(process.env.YUKI_TOKEN).catch(console.error);
+  async initializeLoaders () {
+    for (const name in Loaders) {
+      await new Loaders[name](this).load()
+    }
+  }
+}
+
+const client = new Main()
+
+client.login().catch((error) => client.log(error.message))

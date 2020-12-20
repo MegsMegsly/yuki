@@ -1,25 +1,13 @@
-const Reddit = require('../../util/Reddit.js');
+const { RandomRedditPost } = require('../../structures/command')
 
 module.exports = {
-	name: 'dog',
-	aliases: ['doug'],
-	description: 'Random images of dogs',
-	usage: '',
-	category: 'fun',
-	enabled: true,
-	async execute(Yuki, message, args) {
-		try {
-			const reddit = await Reddit(Yuki.util.randomItem(['dog', 'pitbulls']))
-
-			message.channel.send(new Yuki.MessageEmbed()
-				.setColor(Yuki.util.hexColor.default)
-				.setImage(Yuki.util.randomItem(reddit.data.children).data.url)
-			);
-		} catch (error) {
-			message.channel.send(new Yuki.MessageEmbed()
-				.setColor(Yuki.util.hexColor.error)
-				.setDescription(Yuki.util.sendCode(`Error: ${error.message}`, { code: 'js' }))
-			);
-		}
-	}
-};
+  name: 'dog',
+  aliases: ['doug', 'dogpics', 'randomdog'],
+  description: 'Random images of dogs',
+  usage: '',
+  category: 'fun',
+  async execute (message) {
+    RandomRedditPost(message, this)
+      .catch((error) => message.channel.send(`Error: ${error.message}`, { code: 'js' }))
+  }
+}

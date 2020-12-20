@@ -1,14 +1,27 @@
-const express = require('express');
+const { Loader } = require('../structures')
 
-const app = express();
+const express = require('express')
 
-module.exports = {
-	load(Yuki) {
-		this.initializeHTTP(Yuki);
-	},
+class HTTPLoader extends Loader {
+  constructor (client) {
+    super(client)
+  }
 
-	initializeHTTP() {
-		app.get('/', (req, res) => res.sendStatus(200));
-    		app.listen(process.env.PORT);
-	}
-};
+  async load () {
+    try {
+      await this.initializeHTTP()
+    } catch (error) {
+      this.client.log(error)
+    }
+  }
+
+  initializeHTTP (port = process.env.PORT) {
+    this.app = express()
+
+    this.app.get('/', (request, response) => response.sendStatus(200))
+
+    this.app.listen(port, () => this.client.log(`Server running on port ${port}`))
+  }
+}
+
+module.exports = HTTPLoader
