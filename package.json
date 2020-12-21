@@ -15,7 +15,7 @@
     "transform-props": "^1.0.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node core/Shard.js",
     "dev": "nodemon -r dotenv/config core/Yuki.js"
   },
   "license": "MIT",
