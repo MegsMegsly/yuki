@@ -1,6 +1,6 @@
 const { Client } = require('./structures')
 
-const Loaders = require('./Loaders')
+const Loaders = require('./loaders')
 
 class Main extends Client {
   constructor () {
