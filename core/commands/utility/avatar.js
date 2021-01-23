@@ -1,28 +1,35 @@
 const { MessageEmbed } = require('discord.js')
 
+const DiscordUtils = require('../../utils/DiscordUtils.js')
+
 module.exports = {
   name: 'avatar',
   aliases: ['photo'],
-  description: '',
+  description: 'Get avatar or guild icon',
   usage: '<@user>',
   category: 'utility',
   async execute (message) {
-    const target = await message.client.users.fetch(DiscordUtils.resolveUser(message))
-
     if (message.parameters[0]?.toLowerCase() === 'server') {
+      const icon = message.guild.iconURL({ format: 'png', dynamic: true, size: 2048 })
+      
       message.channel.send(new MessageEmbed()
         .setTitle(message.guild.name)
-        .setDescription(`🏞️ **[Icon URL](${message.guild.iconURL({ format: 'png', dynamic: true, size: 2048 })})**`)
-        .setImage(member.guild.iconURL({ format: 'png', dynamic: true, size: 2048 }))
+        .setDescription(`🏞️ **[Icon URL](${icon})**`)
+        .setImage(icon)
       )
     } else {
-      message.guild.members.fetch(target.id)
-      .then((member) => message.channel.send(new MessageEmbed()
-        .setTitle(member.user.tag)
-        .setDescription(`🏞️ **[Icon URL](${message.user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 })})**`)
-        .setImage(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
-      ))
-      .catch((error) => message.channel.send(`Error: ${error.message}`, { code: 'js' }))
+      const target = await message.client.users.fetch(DiscordUtils.resolveUser(message))
+
+      message.client.users.fetch(target.id)
+        .then((user) => {
+          const icon = user.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 })
+
+          message.channel.send(new MessageEmbed()
+            .setTitle(user.tag)
+            .setDescription(`🏞️ **[Icon URL](${icon})**`)
+            .setImage(icon)
+          )
+        })
     }
   }
 }
